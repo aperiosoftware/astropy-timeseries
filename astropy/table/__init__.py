@@ -47,7 +47,6 @@ from .bst import BST, FastBST, FastRBT
 from .sorted_array import SortedArray
 from .soco import SCEngine
 from .serialize import SerializedColumn
-from .timeseries import TimeSeries
 
 # Finally import the formats for the read and write method but delay building
 # the documentation until all are loaded. (#5275)
