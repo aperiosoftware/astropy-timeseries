@@ -74,6 +74,7 @@ Data structures and transformations
    wcs/index
    modeling/index
    uncertainty/index
+   timeseries/index
 
 Files, I/O, and Communication
 -----------------------------
