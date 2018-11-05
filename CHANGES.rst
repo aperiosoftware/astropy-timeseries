@@ -879,6 +879,9 @@ astropy.io.fits
 
 - Override ``HDUList.copy()`` to return a shallow HDUList instance. [#7218]
 
+- Fix writing of ``Table`` objects with ``Time`` columns that are also table
+  indices to FITS files. [#8077]
+
 astropy.io.registry
 ^^^^^^^^^^^^^^^^^^^
 
