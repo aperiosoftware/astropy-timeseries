@@ -23,9 +23,9 @@ from astropy_helpers.distutils_helpers import is_distutils_display_option
 from astropy_helpers.git_helpers import get_git_devstr
 from astropy_helpers.version_helpers import generate_version_py
 
-import astropy
+import astropy_timeseries
 
-NAME = 'astropy'
+NAME = 'astropy_timeseries'
 
 # VERSION should be PEP386 compatible (http://www.python.org/dev/peps/pep-0386)
 VERSION = '3.2.dev'
@@ -51,29 +51,18 @@ generate_version_py(NAME, VERSION, RELEASE, get_debug_option(NAME),
 package_info = get_package_info()
 
 # Add the project-global data
-package_info['package_data'].setdefault('astropy', []).append('data/*')
+package_info['package_data'].setdefault('astropy_timeseries', []).append('data/*')
 
 # Add any necessary entry points
 entry_points = {}
 # Command-line scripts
 entry_points['console_scripts'] = [
-    'fits2bitmap = astropy.visualization.scripts.fits2bitmap:main',
-    'fitscheck = astropy.io.fits.scripts.fitscheck:main',
-    'fitsdiff = astropy.io.fits.scripts.fitsdiff:main',
-    'fitsheader = astropy.io.fits.scripts.fitsheader:main',
-    'fitsinfo = astropy.io.fits.scripts.fitsinfo:main',
-    'samp_hub = astropy.samp.hub_script:hub_script',
-    'showtable = astropy.table.scripts.showtable:main',
-    'volint = astropy.io.votable.volint:main',
-    'wcslint = astropy.wcs.wcslint:main',
 ]
 # Register ASDF extensions
 entry_points['asdf_extensions'] = [
-    'astropy = astropy.io.misc.asdf.extension:AstropyExtension',
-    'astropy-asdf = astropy.io.misc.asdf.extension:AstropyAsdfExtension',
 ]
 
-min_numpy_version = 'numpy>=' + astropy.__minimum_numpy_version__
+min_numpy_version = 'numpy>=1.13.0'
 
 setup_requires = [min_numpy_version]
 
@@ -94,22 +83,18 @@ if is_distutils_display_option():
     setup_requires = []
 
 
-setup(name=NAME,
+setup(name='astropy-timeseries',
       version=VERSION,
-      description='Community-developed python astronomy tools',
+      description='Experimental package for previewing astropy_timeseries functionality',
       requires=['numpy'],  # scipy not required, but strongly recommended
       setup_requires=setup_requires,
       install_requires=install_requires,
       extras_require=extras_require,
       provides=[NAME],
-      author='The Astropy Developers',
-      author_email='astropy.team@gmail.com',
+      author='Aperio Software Ltd.',
+      author_email='thomas.robitaille@aperiosoftware.com',
       license='BSD',
-      url='http://astropy.org',
-      long_description=astropy.__doc__,
-      keywords=['astronomy', 'astrophysics', 'cosmology', 'space', 'science',
-                'units', 'table', 'wcs', 'samp', 'coordinate', 'fits',
-                'modeling', 'models', 'fitting', 'ascii'],
+      url='http://astropy-timeseries.readthedocs.io',
       classifiers=[
           'Intended Audience :: Science/Research',
           'License :: OSI Approved :: BSD License',

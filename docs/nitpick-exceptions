@@ -85,3 +85,6 @@ py:obj RuntimeError
 py:obj NotImplementedError
 py:obj AttributeError
 py:obj NotImplementedError
+
+py:obj Table
+py:obj TableGroups

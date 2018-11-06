@@ -13,8 +13,6 @@ cache:
 os:
     - linux
 
-stage: Comprehensive tests
-
 # Setting sudo to false opts in to Travis-CI container-based builds.
 sudo: false
 
@@ -30,13 +28,13 @@ env:
     global:
         # Set defaults to avoid repeating in most cases
         - PYTHON_VERSION=3.6
+        - ASTROPY_VERSION=dev
         - NUMPY_VERSION=stable
         - PYTEST_VERSION=3.10
         - MAIN_CMD='python setup.py'
         - CONDA_DEPENDENCIES='Cython jinja2'
-        - CONDA_ALL_DEPENDENCIES='Cython jinja2 scipy h5py matplotlib pyyaml scikit-image pandas pytz beautifulsoup4 ipython mpmath bleach bottleneck'
+        - CONDA_ALL_DEPENDENCIES='Cython jinja2 scipy matplotlib'
         - SETUP_XVFB=True
-        - EVENT_TYPE='push pull_request'
         - SETUP_CMD='test'
 
         # PEP8 errors/warnings:
@@ -59,14 +57,6 @@ env:
         # F823: local variable name referenced before assignment
         - FLAKE8_OPT="--select=E101,W191,W291,W292,W293,W391,E111,E112,E113,E502,E722,E901,E902,E999,F822,F823"
 
-stages:
-   # Do the style check and a single test job, don't proceed if it fails
-   - name: Initial tests
-   # Do the rest of the tests
-   - name: Comprehensive tests
-   - name: Cron tests
-     if: type = cron
-
 matrix:
 
     # Don't wait for allowed failures
@@ -76,12 +66,10 @@ matrix:
         # Try MacOS X. Use a slightly old numpy version to help test against
         # all supported numpy versions.
         - os: osx
-          stage: Cron tests
           env: SETUP_CMD='test --remote-data=astropy'
                CONDA_DEPENDENCIES="$CONDA_ALL_DEPENDENCIES clang"
                PIP_DEPENDENCIES='jplephem asdf==2.1.0'
                CCOMPILER=clang
-               EVENT_TYPE='cron'
 
         # Try all python versions and Numpy versions. Since we can assume that
         # the Numpy developers have taken care of testing Numpy with different
@@ -109,7 +97,6 @@ matrix:
                PYTEST_VERSION=3.7
 
         - os: linux
-          stage: Initial tests
           env: PYTHON_VERSION=3.7 CONDA_DEPENDENCIES=$CONDA_ALL_DEPENDENCIES
                PIP_DEPENDENCIES="asdf==2.1.0"
                SETUP_CMD='test -a "--durations=50"'
@@ -123,17 +110,14 @@ matrix:
                LC_CTYPE=C.ascii LC_ALL=C
                CFLAGS='--coverage -fno-inline-functions -O0'
                MATPLOTLIB_VERSION=2.0
-               EVENT_TYPE='push pull_request cron'
 
         # Try pre-release version of Numpy without optional dependencies
         - os: linux
           env: NUMPY_VERSION=prerelease
-               EVENT_TYPE='push pull_request cron'
 
         # Do a PEP8/pyflakes test with flake8
         - os: linux
-          stage: Initial tests
-          env: MAIN_CMD="flake8 astropy --count $FLAKE8_OPT" SETUP_CMD=''
+          env: MAIN_CMD="flake8 astropy-timeseries --count $FLAKE8_OPT" SETUP_CMD=''
 
         # Try developer version of Numpy with optional dependencies and also
         # run all remote tests. Since both cases will be potentially
@@ -149,8 +133,7 @@ matrix:
         # we can spot issues sooner. We do not use remote data here, since
         # that gives too many false positives due to URL timeouts.
         - os: linux
-          stage: Cron tests
-          env: NUMPY_VERSION=dev MATPLOTLIB_VERSION=dev EVENT_TYPE='cron'
+          env: NUMPY_VERSION=dev MATPLOTLIB_VERSION=dev
                CONDA_DEPENDENCIES=$CONDA_ALL_DEPENDENCIES
                PIP_DEPENDENCIES="asdf==2.1.0"
 

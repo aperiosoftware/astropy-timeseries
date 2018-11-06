@@ -4,8 +4,8 @@ Manipulation and analysis of time series
 ****************************************
 
 .. |Table| replace:: :class:`~astropy.table.Table`
-.. |SampledTimeSeries| replace:: :class:`~astropy.timeseries.SampledTimeSeries`
-.. |BinnedTimeSeries| replace:: :class:`~astropy.timeseries.BinnedTimeSeries`
+.. |SampledTimeSeries| replace:: :class:`~astropy_timeseries.SampledTimeSeries`
+.. |BinnedTimeSeries| replace:: :class:`~astropy_timeseries.BinnedTimeSeries`
 
 Combining time series
 =====================
@@ -20,7 +20,7 @@ series cannot be combined with binned time series and vice-versa)::
 
     >>> from astropy.table import vstack
     >>> from astropy import units as u
-    >>> from astropy.timeseries import SampledTimeSeries
+    >>> from astropy_timeseries import SampledTimeSeries
     >>> ts_a = SampledTimeSeries(time='2016-03-22T12:30:31',
     ...                          time_delta=3 * u.s,
     ...                          data={'flux': [1, 4, 5, 3, 2] * u.mJy})
@@ -99,7 +99,7 @@ Resampling
 ==========
 
 The |SampledTimeSeries| class has a
-:meth:`~astropy.timeseries.SampledTimeSeries.downsample` method that can be used
+:meth:`~astropy_timeseries.SampledTimeSeries.downsample` method that can be used
 to bin values from the time series into bins of equal time, using a custom
 function (mean, median, etc.). This operation returns a |BinnedTimeSeries|.
 The following example shows how to use this to bin a light curve from the Kepler
@@ -110,7 +110,7 @@ data using:
    :context: reset
    :nofigs:
 
-    from astropy.timeseries import SampledTimeSeries
+    from astropy_timeseries import SampledTimeSeries
     from astropy.utils.data import get_pkg_data_filename
     example_data = get_pkg_data_filename('timeseries/kplr010666592-2009131110544_slc.fits')
     kepler = SampledTimeSeries.read(example_data, format='kepler.fits')
@@ -143,7 +143,7 @@ Folding
 =======
 
 The |SampledTimeSeries| class has a
-:meth:`~astropy.timeseries.SampledTimeSeries.fold` method that can be used to
+:meth:`~astropy_timeseries.SampledTimeSeries.fold` method that can be used to
 return a new time series with a relative and folded time axis. This method
 takes the period as a :class:`~astropy.units.Quantity`, and optionally takes
 an epoch as a :class:`~astropy.time.Time`, which defines a zero time offset:
@@ -155,7 +155,7 @@ an epoch as a :class:`~astropy.time.Time`, which defines a zero time offset:
    import numpy as np
    from astropy import units as u
    import matplotlib.pyplot as plt
-   from astropy.timeseries import SampledTimeSeries
+   from astropy_timeseries import SampledTimeSeries
    from astropy.utils.data import get_pkg_data_filename
 
    example_data = get_pkg_data_filename('timeseries/kplr010666592-2009131110544_slc.fits')
@@ -186,7 +186,7 @@ sigma-clipped median value.
    import numpy as np
    from astropy import units as u
    import matplotlib.pyplot as plt
-   from astropy.timeseries import SampledTimeSeries
+   from astropy_timeseries import SampledTimeSeries
    from astropy.utils.data import get_pkg_data_filename
 
    example_data = get_pkg_data_filename('timeseries/kplr010666592-2009131110544_slc.fits')

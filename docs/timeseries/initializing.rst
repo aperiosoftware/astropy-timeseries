@@ -5,8 +5,8 @@ Creating sampled and binned time series
 
 .. |Time| replace:: :class:`~astropy.time.Time`
 .. |Table| replace:: :class:`~astropy.table.Table`
-.. |SampledTimeSeries| replace:: :class:`~astropy.timeseries.SampledTimeSeries`
-.. |BinnedTimeSeries| replace:: :class:`~astropy.timeseries.BinnedTimeSeries`
+.. |SampledTimeSeries| replace:: :class:`~astropy_timeseries.SampledTimeSeries`
+.. |BinnedTimeSeries| replace:: :class:`~astropy_timeseries.BinnedTimeSeries`
 
 Initializing a sampled time series
 ==================================
@@ -25,7 +25,7 @@ start time, the time interval, and the number of samples, for evenly sampled
 time series::
 
     >>> from astropy import units as u
-    >>> from astropy.timeseries import SampledTimeSeries
+    >>> from astropy_timeseries import SampledTimeSeries
     >>> ts1 = SampledTimeSeries(time='2016-03-22T12:30:31',
     ...                         time_delta=3 * u.s,
     ...                         n_samples=10)
@@ -90,7 +90,7 @@ Equal-sized contiguous bins
 To create a binned time series with equal-size contiguous bins, it is sufficient
 to specify a start time as well as a bin size::
 
-    >>> from astropy.timeseries import BinnedTimeSeries
+    >>> from astropy_timeseries import BinnedTimeSeries
     >>> ts3 = BinnedTimeSeries(start_time='2016-03-22T12:30:31',
     ...                        bin_size=3 * u.s, n_bins=10)
     >>> ts3

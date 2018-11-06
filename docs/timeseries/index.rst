@@ -1,22 +1,22 @@
 .. _astropy-timeseries:
 
 ****************************************************
-Time series (`astropy.timeseries`)
+Time series (`astropy_timeseries`)
 ****************************************************
 
 .. |Time| replace:: :class:`~astropy.time.Time`
 .. |Table| replace:: :class:`~astropy.table.Table`
 .. |QTable| replace:: :class:`~astropy.table.QTable`
 .. |Quantity| replace:: :class:`~astropy.units.Quantity`
-.. |SampledTimeSeries| replace:: :class:`~astropy.timeseries.SampledTimeSeries`
-.. |BinnedTimeSeries| replace:: :class:`~astropy.timeseries.BinnedTimeSeries`
+.. |SampledTimeSeries| replace:: :class:`~astropy_timeseries.SampledTimeSeries`
+.. |BinnedTimeSeries| replace:: :class:`~astropy_timeseries.BinnedTimeSeries`
 
 Introduction
 ============
 
 Many different areas of astrophysics have to deal with 1D time series data,
 either sampling a continuous variable at fixed times or counting some events
-binned into time windows. The `astropy.timeseries` package therefore provides
+binned into time windows. The `astropy_timeseries` package therefore provides
 classes to represent and manipulate time series
 
 The time series classes presented below are |QTable| objects that have special
@@ -38,7 +38,7 @@ source::
 
 We can then use the |SampledTimeSeries| class to read in this file::
 
-    >>> from astropy.timeseries import SampledTimeSeries
+    >>> from astropy_timeseries import SampledTimeSeries
     >>> ts = SampledTimeSeries.read(filename, format='kepler.fits')
 
 Time series are specialized kinds of astropy |Table| objects::
@@ -117,7 +117,7 @@ Let's use what we've seen so far to make a plot
 
     from astropy.utils.data import get_pkg_data_filename
     filename = get_pkg_data_filename('timeseries/kplr010666592-2009131110544_slc.fits')
-    from astropy.timeseries import SampledTimeSeries
+    from astropy_timeseries import SampledTimeSeries
     ts = SampledTimeSeries.read(filename, format='kepler.fits')
 
 .. plot::
@@ -129,8 +129,9 @@ Let's use what we've seen so far to make a plot
    plt.xlabel('Barycentric Julian Date')
    plt.ylabel('SAP Flux (e-/s)')
 
-It looks like there are a few transits! Let's use the :ref:`stats-bls`
-functionality to estimate the period, using a box with a duration of 0.2 days:
+It looks like there are a few transits! Let's use
+:class:`~astropy.stats.BoxLeastSquares` to estimate the period, using a box with
+a duration of 0.2 days:
 
 .. plot::
    :context:
@@ -147,7 +148,7 @@ functionality to estimate the period, using a box with a duration of 0.2 days:
    <Quantity 2.21584977 d>
 
 We can now fold the time series using the period we've found above using the
-:meth:`~astropy.timeseries.SampledTimeSeries.fold` method:
+:meth:`~astropy_timeseries.SampledTimeSeries.fold` method:
 
 .. plot::
    :context:
@@ -228,7 +229,7 @@ Let's take a look at the final result:
 
 It looks like there might be a hint of a secondary transit!
 
-To learn more about the capabilities in the `astropy.timeseries` module, you can
+To learn more about the capabilities in the `astropy_timeseries` module, you can
 find links to the full documentation in the next section.
 
 .. _using-timeseries:
@@ -236,7 +237,7 @@ find links to the full documentation in the next section.
 Using ``timeseries``
 ====================
 
-The details of using `astropy.timeseries` are provided in the following sections:
+The details of using `astropy_timeseries` are provided in the following sections:
 
 Initializing and reading in time series
 ---------------------------------------
@@ -260,10 +261,10 @@ Accessing data and manipulating time series
 Comparison to other packages
 ----------------------------
 
-The `astropy.timeseries` package is not the only package to provide
+The `astropy_timeseries` package is not the only package to provide
 functionality related to time series. For example, another notable package is
 `pandas <https://pandas.pydata.org/>`_, which provides a :class:`pandas.DataFrame`
-class. The main benefits of `astropy.timeseries` in the context of astronomical
+class. The main benefits of `astropy_timeseries` in the context of astronomical
 research are the following:
 
 * The time column is a |Time| object that supports very high precision
@@ -277,5 +278,5 @@ research are the following:
 Reference/API
 =============
 
-.. automodapi:: astropy.timeseries
+.. automodapi:: astropy_timeseries
    :inherited-members:

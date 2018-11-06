@@ -6,8 +6,8 @@ Accessing data in time series
 .. |Time| replace:: :class:`~astropy.time.Time`
 .. |Table| replace:: :class:`~astropy.table.Table`
 .. |QTable| replace:: :class:`~astropy.table.QTable`
-.. |SampledTimeSeries| replace:: :class:`~astropy.timeseries.SampledTimeSeries`
-.. |BinnedTimeSeries| replace:: :class:`~astropy.timeseries.BinnedTimeSeries`
+.. |SampledTimeSeries| replace:: :class:`~astropy_timeseries.SampledTimeSeries`
+.. |BinnedTimeSeries| replace:: :class:`~astropy_timeseries.BinnedTimeSeries`
 
 Accessing data
 ==============
@@ -17,7 +17,7 @@ with two data columns - ``flux`` and ``temp``::
 
     >>> from collections import OrderedDict
     >>> from astropy import units as u
-    >>> from astropy.timeseries import SampledTimeSeries
+    >>> from astropy_timeseries import SampledTimeSeries
     >>> ts = SampledTimeSeries(time='2016-03-22T12:30:31',
     ...                        time_delta=3 * u.s,
     ...                        data={'flux': [1., 4., 5., 3., 2.],
@@ -117,10 +117,10 @@ e.g.::
 
 Time series objects are also automatically indexed using the functionality
 described in :ref:`table-indexing`. This provides the ability to access rows and
-subset of rows using the :attr:`~astropy.timeseries.TimeSeries.loc` and
-:attr:`~astropy.timeseries.TimeSeries.iloc` attributes.
+subset of rows using the :attr:`~astropy_timeseries.TimeSeries.loc` and
+:attr:`~astropy_timeseries.TimeSeries.iloc` attributes.
 
-The :attr:`~astropy.timeseries.TimeSeries.loc` attribute can be used to slice
+The :attr:`~astropy_timeseries.TimeSeries.loc` attribute can be used to slice
 the time series by time. For example, the following can be used to extract all
 entries for a given timestamp::
 
@@ -147,7 +147,7 @@ or within a time range::
 .. TODO: make it so that Time() is not required above
 
 Note that the result will always be sorted by time. Similarly, the
-:attr:`~astropy.timeseries.TimeSeries.iloc` attribute can be used to fetch
+:attr:`~astropy_timeseries.TimeSeries.iloc` attribute can be used to fetch
 rows from the time series *sorted by time*, so for example the two first
 entries (by time) can be accessed with::
 

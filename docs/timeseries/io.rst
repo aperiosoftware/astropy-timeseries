@@ -4,8 +4,8 @@ Reading/writing time series
 ***************************
 
 .. |Table| replace:: :class:`~astropy.table.Table`
-.. |SampledTimeSeries| replace:: :class:`~astropy.timeseries.SampledTimeSeries`
-.. |BinnedTimeSeries| replace:: :class:`~astropy.timeseries.BinnedTimeSeries`
+.. |SampledTimeSeries| replace:: :class:`~astropy_timeseries.SampledTimeSeries`
+.. |BinnedTimeSeries| replace:: :class:`~astropy_timeseries.BinnedTimeSeries`
 
 Build-in readers
 ================
@@ -13,7 +13,7 @@ Build-in readers
 Since |SampledTimeSeries| and |BinnedTimeSeries| are sub-classes of |Table|,
 they have :meth:`~astropy.table.Table.read` and
 :meth:`~astropy.table.Table.write` methods that can be used to read time series
-from files. We include a few readers for well-defined formats in `astropy.timeseries` -
+from files. We include a few readers for well-defined formats in `astropy_timeseries` -
 for example we have readers for light curves in FITS format from the
 `Kepler <https://www.nasa.gov/mission_pages/timeseries/main/index.html>`_ and
 `TESS <https://tess.gsfc.nasa.gov/>`_ missions.
@@ -38,7 +38,7 @@ the time series using:
    :context:
    :nofigs:
 
-   from astropy.timeseries import SampledTimeSeries
+   from astropy_timeseries import SampledTimeSeries
    kepler = SampledTimeSeries.read(example_data, format='kepler.fits')
 
 Let's check that the time series has been read in correctly:

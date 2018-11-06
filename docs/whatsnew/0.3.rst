@@ -1,9 +1,0 @@
-.. _whatsnew-0.3:
-
-**************************
-What's New in Astropy 0.3?
-**************************
-
-See this page in the `Astropy v0.3 documentation`__.
-
-__ http://docs.astropy.org/en/v0.3.2/whatsnew/0.3.html

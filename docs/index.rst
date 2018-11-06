@@ -5,167 +5,24 @@
 
 :tocdepth: 3
 
-.. the "raw" directive below is used to hide the title in favor of just the logo being visible
-.. raw:: html
+****************************************
+astropy-timeseries preview documentation
+****************************************
 
-    <style media="screen" type="text/css">
-      h1 { display:none; }
-    </style>
+This is a **preview** of functionality under development for a new
+**astropy.timeseries** sub-package. At the moment, you can try out this
+functionality by installing the standalone package 'astropy_timeseries'::
 
-#####################
-Astropy Documentation
-#####################
+    pip install git+https://github.com/aperiosoftware/astropy-timeseries.git
 
-.. |logo_svg| image:: _static/astropy_banner.svg
+Note that this requires Astropy 3.1 or later (or the latest developer version).
 
-.. |logo_png| image:: _static/astropy_banner_96.png
-
-.. raw:: html
-
-   <img src="_images/astropy_banner.svg" onerror="this.src='_images/astropy_banner_96.png'; this.onerror=null;" width="485"/>
-
-.. only:: latex
-
-    .. image:: _static/astropy_logo.pdf
-
-The ``astropy`` package contains key functionality and common tools needed for
-performing astronomy and astrophysics with Python.  It is at the core of the
-`Astropy Project <http://www.astropy.org/about.html>`_, which aims to enable
-the community to develop a robust ecosystem of `Affiliated Packages
-<http://www.astropy.org/affiliated/index.html>`_ covering a broad range of
-needs for astronomical research, data processing, and data analysis.
-
-.. _getting-started:
-
-***************
-Getting Started
-***************
+To read the documentation, click on the link below:
 
 .. toctree::
    :maxdepth: 1
 
-   install
-   whatsnew/3.2
-   importing_astropy
-   Example Gallery <generated/examples/index>
-   Tutorials <http://tutorials.astropy.org/>
-   Get Help <http://www.astropy.org/help.html>
-   Contribute and Report Problems <http://www.astropy.org/contribute.html>
-   About the Astropy Project <http://www.astropy.org/about.html>
-
-.. _user-docs:
-
-******************
-User Documentation
-******************
-
-Data structures and transformations
------------------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   constants/index
-   units/index
-   nddata/index
-   table/index
-   time/index
-   coordinates/index
-   wcs/index
-   modeling/index
-   uncertainty/index
    timeseries/index
 
-Files, I/O, and Communication
------------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   io/unified
-   io/fits/index
-   io/ascii/index
-   io/votable/index
-   io/misc
-   samp/index
-
-Computations and utilities
---------------------------
-
-.. toctree::
-   :maxdepth: 1
-
-   cosmology/index
-   convolution/index
-   visualization/index
-   stats/index
-
-Nuts and bolts
---------------
-
-.. toctree::
-   :maxdepth: 1
-
-   config/index
-   io/registry
-   logging
-   warnings
-   utils/index
-   testhelpers
-   development/workflow/get_devel_version
-
-.. _developer-docs:
-
-=======================
-Developer Documentation
-=======================
-
-The developer documentation contains instructions for how to contribute to
-Astropy or affiliated packages, as well as coding, documentation, and
-testing guidelines. For the guiding vision of this process and the project
-as a whole, see :doc:`development/vision`.
-
-.. toctree::
-   :maxdepth: 1
-
-   development/workflow/development_workflow
-   development/when_to_rebase
-   development/codeguide
-   development/docguide
-   development/testguide
-   development/scripts
-   development/building
-   development/ccython
-   development/releasing
-   development/workflow/maintainer_workflow
-   development/astropy-package-template
-   changelog
-
-There are some additional tools, mostly of use for maintainers, in the
-`astropy/astropy-procedures repository
-<https://github.com/astropy/astropy-procedures>`__.
-
-.. _project-details:
-
-***************
-Project details
-***************
-
-.. toctree::
-   :maxdepth: 1
-
-   stability
-   whatsnew/index
-   known_issues
-   credits
-   license
-
-*****
-Index
-*****
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
-.. _feedback@astropy.org: mailto:feedback@astropy.org
+You can report any issues or requests using the `GitHub issue tracker
+<https://github.com/aperiosoftware/astropy-timeseries/issues>`_.

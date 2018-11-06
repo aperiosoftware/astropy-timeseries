@@ -14,7 +14,7 @@ usual attributes on |Time| to convert the time to different formats or scales.
 For example, to get the times as modified Julian Dates from a simple time series::
 
     >>> from astropy import units as u
-    >>> from astropy.timeseries import SampledTimeSeries
+    >>> from astropy_timeseries import SampledTimeSeries
     >>> ts = SampledTimeSeries(time='2016-03-22T12:30:31', time_delta=3 * u.s,
     ...                        data={'flux': [1., 3., 4., 2., 4.]})
     >>> ts.time.mjd  # doctest: +FLOAT_CMP

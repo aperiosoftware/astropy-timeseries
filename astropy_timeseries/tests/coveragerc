@@ -1,0 +1,35 @@
+[run]
+source = astropy_timeseries
+omit =
+   astropy_timeseries/__init__*
+   astropy_timeseries/conftest.py
+   astropy_timeseries/*setup*
+   astropy_timeseries/*/tests/*
+   astropy_timeseries/tests/test_*
+   astropy_timeseries/extern/*
+   astropy_timeseries/sphinx/*
+   astropy_timeseries/utils/compat/*
+   astropy_timeseries/version*
+   astropy_timeseries/wcs/docstrings*
+   astropy_timeseries/_erfa/*
+
+[report]
+exclude_lines =
+   # Have to re-enable the standard pragma
+   pragma: no cover
+
+   # Don't complain about packages we have installed
+   except ImportError
+
+   # Don't complain if tests don't hit assertions
+   raise AssertionError
+   raise NotImplementedError
+
+   # Don't complain about script hooks
+   def main\(.*\):
+
+   # Ignore branches that don't pertain to this version of Python
+   pragma: py{ignore_python_version}
+
+   # Don't complain about IPython completion helper
+   def _ipython_key_completions_
