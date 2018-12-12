@@ -28,7 +28,7 @@ env:
     global:
         # Set defaults to avoid repeating in most cases
         - PYTHON_VERSION=3.6
-        - ASTROPY_VERSION=dev
+        - ASTROPY_VERSION=stable
         - NUMPY_VERSION=stable
         - PYTEST_VERSION=3.10
         - MAIN_CMD='python setup.py'
@@ -133,7 +133,7 @@ matrix:
         # we can spot issues sooner. We do not use remote data here, since
         # that gives too many false positives due to URL timeouts.
         - os: linux
-          env: NUMPY_VERSION=dev MATPLOTLIB_VERSION=dev
+          env: NUMPY_VERSION=dev MATPLOTLIB_VERSION=dev ASTROPY_VERSION=dev
                CONDA_DEPENDENCIES=$CONDA_ALL_DEPENDENCIES
                PIP_DEPENDENCIES="asdf==2.1.0"
 
