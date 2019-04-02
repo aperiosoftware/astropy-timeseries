@@ -204,22 +204,22 @@ class TimeSeries(BaseTimeSeries):
     @classmethod
     def read(self, filename, time_column=None, time_format=None, time_scale=None, format=None, *args, **kwargs):
         """
-        Read and parse a file and returns a `astropy_timeseries.sampled.TimeSeries`.
+        Read and parse a file and returns a `astropy_timeseries.TimeSeries`.
 
         This method uses the unified I/O infrastructure in Astropy which makes
         it easy to define readers/writers for various classes
         (http://docs.astropy.org/en/stable/io/unified.html). By default, this
         method will try and use readers defined specifically for the
-        `astropy_timeseries.binned.TimeSeries` class - however, it is also
+        `astropy_timeseries.TimeSeries` class - however, it is also
         possible to use the ``format`` keyword to specify formats defined for
         the `astropy.table.Table` class - in this case, you will need to also
         provide the column names for column containing the start times for the
         bins, as well as other column names (see the Parameters section below
         for details)::
 
-            >>> from astropy_timeseries.binned import BinnedTimeSeries
-            >>> dat = BinnedTimeSeries.read('table.dat', format='ascii.ecsv',
-            ...                             time_column='date')  # doctest: +SKIP
+            >>> from astropy_timeseries import TimeSeries
+            >>> ts = TimeSeries.read('sampled.dat', format='ascii.ecsv',
+            ...                      time_column='date')  # doctest: +SKIP
 
         Parameters
         ----------
