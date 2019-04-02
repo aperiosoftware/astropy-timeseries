@@ -26,6 +26,8 @@ recursive-include cextern *
 recursive-include scripts *
 recursive-include static *
 
+recursive-include astropy_timeseries/tests/data *
+
 prune docs/_build
 prune build
 

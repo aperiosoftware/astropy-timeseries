@@ -109,6 +109,7 @@ setup(name='astropy-timeseries',
       cmdclass=cmdclassd,
       zip_safe=False,
       entry_points=entry_points,
+      include_package_data=True,
       python_requires='>=' + __minimum_python_version__,
       tests_require=['pytest-astropy'],
       **package_info
